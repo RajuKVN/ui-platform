@@ -1,0 +1,31 @@
+{
+  "name": "ui-platform",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@8.15.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "clean": "rimraf --glob dist node_modules .turbo apps/*/.turbo apps/*/dist apps/*/node_modules packages/*/.turbo packages/*/dist packages/*/node_modules",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "typecheck": "turbo typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo build --filter=./packages/* && changeset publish",
+    "storybook": "pnpm --filter @ui-platform/ui storybook",
+    "build-storybook": "pnpm --filter @ui-platform/ui build-storybook"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@types/node": "^20.11.0",
+    "prettier": "^3.2.0",
+    "rimraf": "^6.1.2",
+    "turbo": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}
